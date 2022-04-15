@@ -10,6 +10,9 @@ router.use(require('./categories')); //  3) Su Campo Status es True
 
 router.use(require('./productos')); //  3) Su Campo Status es True
 router.use(require('./ventas')); //  3) Su Campo Status es True
+router.use(require('./cuentas')); //  3) Su Campo Status es True
+router.use(require('./cortes')); //  3) Su Campo Status es True
+
 
 
 /*

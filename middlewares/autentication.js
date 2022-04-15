@@ -18,7 +18,7 @@ rutasProtegidas.use((req, res, next) => {
     jwt.verify(token, process.env.SEED, (err) => {
         if (err) {
             return res.json({
-                mensaje: 'Token inválida',
+                mensaje: 'Token inválido',
                 err
             });
         }

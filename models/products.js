@@ -13,12 +13,14 @@ let productSchema = new Schema({
     },
     codigo: {
         type: String,
-        unique: true,
-        required: [true, 'Por favor ingresa el codigo del producto']
+        required: [false],
+        unique: false
+
     },
     codigo_cuenta: {
         type: Schema.Types.Number,
         ref: 'Cuenta',
+        required: [true, 'Ingresa la cuenta']
 
     },
     precio: {
@@ -32,6 +34,10 @@ let productSchema = new Schema({
     existencias: {
         type: Number,
         required: [true, 'Por favor ingresa las existencias del producto']
+    },
+    tipo_venta: {
+        type: String,
+        required: [true, 'Por favor ingresa el tipo de venta']
     },
     Status: {
         type: Boolean,

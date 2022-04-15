@@ -7,9 +7,15 @@ const autoIncrement = require('mongoose-auto-increment');
 let Schema = mongoose.Schema;
 
 let cuentaSchema = new Schema({
-    codigo: {
-        type: Schema.Types.Number,
-        ref: 'User',
+    codigo_cuenta: {
+        type: Number,
+        required: [true, 'Por favor ingresa el Codigo de la cuenta']
+
+
+    },
+    nombre: {
+        type: String,
+        required: [true, 'Por favor ingresa el Nombre de la cuenta']
 
     },
     userid: {

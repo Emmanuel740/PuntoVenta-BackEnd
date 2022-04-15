@@ -31,6 +31,13 @@ let ventaSchema = new Schema({
     },
     fecha: {
         type: Date
+    },
+    corte: {
+        type: Boolean,
+        default: false
+    },
+    fechaCorte: {
+        type: Date
     }
 });
 

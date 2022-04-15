@@ -15,11 +15,14 @@ let userSchema = new Schema({
         type: String,
         required: [true, 'Por favor ingresa el rol del Usuario']
     },
-    codigo_cuenta: {
-        type: Schema.Types.Number,
-        ref: 'Cuenta',
+    cuentas: [{
+        codigo_cuenta: {
+            type: Schema.Types.Number,
+            ref: 'Cuenta',
 
-    },
+        }
+
+    }],
     telefono: {
         type: Number,
     },
