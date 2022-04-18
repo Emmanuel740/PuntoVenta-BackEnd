@@ -10,9 +10,10 @@ const Product = require('../models/products');
 const router = Router();
 
 const ProductCtrl = {};
+
 ProductCtrl.getProducts = async(req, res) => {
     let codigo = req.params.codigo;
-    await Product.find({ codigo_cuenta: codigo })
+    await Product.find({ codigo_cuenta: codigo }).limit(100)
         //.populate('area', 'name')
         //.populate('codigoCM', 'name')
         .exec((err, products) => {
@@ -78,45 +79,9 @@ ProductCtrl.postProducts = async(req, res) => {
         });
     });
 };
-/*
-UserCtrl.editStatus = async(req, res) => {
-    let id = req.params.id;
-    let status = req.body.status
-    await User.findByIdAndUpdate(id, { Status: status }, (err, user) => {
-        if (err) {
-            return res.status(400).json({
-                ok: false,
-                err
-            });
-        }
-        if (status == true) {
-            return res.status(200).json({
-                ok: true,
-                message: `${user.name} fue Activado`
-            })
-        }
-        if (status == false) {
-            return res.status(200).json({
-                ok: true,
-                message: `${user.name} fue Desactivado`
-            })
-        }
-
-    });
-
-};
-*/
 
 ProductCtrl.editProduct = async(req, res) => { //Editar Hallazgo
     const id = req.params.id //id del hallazgo
-        //const hallazgo = req.body;
-        //let fotografia = uploadIMG(hallazgo.fotos, hallazgo.folio, 'liq');;
-        /* const ProductoEditado = { //Nuevos datos
-             area: hallazgo.area,
-             activities: hallazgo.activities,
-             criticity: hallazgo.criticity,
-             siniestro: hallazgo.siniestro
-         };*/
     let nombre = req.body.nombre;
     let precio = req.body.precio;
     let existencias = parseFloat(req.body.existencias);
