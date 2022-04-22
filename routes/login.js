@@ -100,7 +100,8 @@ app.post('/login', async(req, res) => {
         res.json({
             mensaje: 'Correct Authentication',
             token: token,
-            user
+            user,
+            logeado: true
         });
 
 
