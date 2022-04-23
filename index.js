@@ -3,11 +3,17 @@ const express = require('./node_modules/express');
 const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
+const connectionDB = require("./database");
 
 //SETTINGS
 //const config = require('./config/config');
 const { mongoose } = require('./database');
-
+// Conexion de DB 
+if (process.env.DEVELOPMENT === 'true') {
+    connectionDB.conenctToLocalDB();
+   }else{
+     connectionDB.connectToAtlas();
+   }
 
 //CORS - TOKEN
 app.use(cors());
